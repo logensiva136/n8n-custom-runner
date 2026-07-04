@@ -19,6 +19,8 @@ services:
       - N8N_RUNNERS_AUTH_TOKEN=topsecretkey
       - N8N_PAYLOAD_SIZE_MAX=50MB # added to increase the payload size limit
       - N8N_RESTRICT_FILE_ACCESS_TO=/home/node/.n8n-files;/data/shared
+      - N8N_DEFAULT_CORS=TRUE
+      - N8N_CORS_ALLOW_ORIGIN=*
     volumes:
       - n8n_data:/home/node/.n8n
       - ./shared:/data/shared
