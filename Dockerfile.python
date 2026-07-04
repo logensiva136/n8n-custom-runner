@@ -1,0 +1,11 @@
+FROM n8nio/runners:stable
+USER root
+
+RUN cd /opt/runners/task-runner-python && \
+    uv pip install --python .venv/bin/python feedparser requests beautifulsoup4 pandas && \
+    chown -R runner:runner /opt/runners/task-runner-python
+
+COPY n8n-task-runners.json /etc/n8n-task-runners.json
+
+USER runner
+CMD ["python"]
